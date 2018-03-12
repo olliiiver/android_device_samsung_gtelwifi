@@ -25,10 +25,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
-PRODUCT_AAPT_CONFIG := normal large xlarge
-PRODUCT_AAPT_PREF_CONFIG := xlarge
-
 PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_AAPT_CONFIG := xlarge
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Rootdir
 PRODUCT_COPY_FILES += \
@@ -93,10 +92,10 @@ PRODUCT_PACKAGES += \
 # Graphics
 PRODUCT_PACKAGES += \
     gralloc.sc8830 \
-    hwcomposer.sc8830 \
     sprd_gsp.sc8830 \
     libion_sprd \
-    libmemoryheapion_sprd
+    libmemoryheapion
+#    hwcomposer.sc8830
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -105,8 +104,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/sci-keypad.kl:system/usr/keylayout/sci-keypad.kl
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.sc8830
+#PRODUCT_PACKAGES += \
+#    lights.sc8830
 
 # Media config
 MEDIA_XML_CONFIGS := \
@@ -144,16 +143,18 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
-    wpa_supplicant \
-    hostapd \
-    macloader
+    wpa_supplicant
+
+#    dhcpcd.conf
+#    hostapd \
+#    macloader
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
     $(LOCAL_PATH)/configs/wifi/nvram_net.txt:system/etc/wifi/nvram_net.txt \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # OpenGL ES 3.0
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -173,6 +174,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1
+
+# Disable RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.carrier=wifi-only \
+    ro.radio.noril=1
+
+# Screen
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=160
+
+# Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    telephony.lteOnCdmaDevice=0
 
 # Dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
