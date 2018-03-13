@@ -3,7 +3,7 @@
 vendor/firmware/vbc_eq
 
 # Bluetooth
-#vendor/firmware/BCM43430A1_001.002.009.0022.0000_Samsung_TabE_SM-T561_TEST_ONLY.hcd
+vendor/firmware/BCM43430A1_001.002.009.0022.0000_Samsung_TabE_SM-T561_TEST_ONLY.hcd
 
 # Camera
 # lib/hw/camera.sc8830.so
@@ -49,7 +49,7 @@ lib/libomx_vpxdec_hw_sprd.so
 #lib/libsecril-client.so
 
 # Sensors
-#lib/hw/sensors.sc8830.so
+lib/hw/sensors.sc8830.so
 
 # Wifi
 etc/wifi/bcmdhd_apsta.bin

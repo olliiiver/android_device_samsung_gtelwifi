@@ -57,6 +57,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    javax.btobex \
     libbt-vendor
 
 # Camera
@@ -143,18 +144,42 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
+    hostapd \
+    iwconfig \
+    hostapd_cli \
+    wcnss_service \
+    libQWiFiSoftApCfg \
+    libqsap_sdk \
+    libwpa_client \
+    libwcnss_qmi \
     wpa_supplicant
 
-#    dhcpcd.conf
-#    hostapd \
-#    macloader
+# Wifi
+PRODUCT_PACKAGES += \
+    macloader \
+    libandroid_net \
+    libwpa_client \
+    wificond \
+    wifilogd \
+    wpa_supplicant.conf \
+    wpa_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf
+
+
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/nvram_mfg.txt:system/etc/wifi/nvram_mfg.txt \
     $(LOCAL_PATH)/configs/wifi/nvram_net.txt:system/etc/wifi/nvram_net.txt \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf 
+#    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # OpenGL ES 3.0
 PRODUCT_PROPERTY_OVERRIDES += \
