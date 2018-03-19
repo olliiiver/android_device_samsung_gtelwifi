@@ -38,7 +38,7 @@ TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 androidboot.selinux=permissive androidboot.hardware=sc8830
+#BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 androidboot.selinux=permissive androidboot.hardware=sc8830
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -64,27 +64,28 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Audio
-BOARD_USES_TINYALSA_AUDIO := true
-TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
+#BOARD_USES_TINYALSA_AUDIO := true
+#TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
+BOARD_USES_GENERIC_AUDIO := true
 
 # FM radio
-BOARD_HAVE_FM_BCM := true
-BOARD_HAVE_FMRADIO_BCM := true
+#BOARD_HAVE_FM_BCM := true
+#BOARD_HAVE_FMRADIO_BCM := true
 
 # Bluetooth
-BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
+#BOARD_HAVE_BLUETOOTH_BCM := true
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+#BOARD_BLUEDROID_VENDOR_CONF := $(DEVICE_PATH)/bluetooth/libbt_vndcfg.txt
 
 # Camera
-#USE_CAMERA_STUB := true
+USE_CAMERA_STUB := true
 
 # Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
+#BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_NO_CHARGER_LED := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
-BACKLIGHT_PATH := /sys/class/backlight/sprd_backlight/brightness
+BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
 
 # Codecs
 #COMMON_GLOBAL_CFLAGS += -DBOARD_CANT_REALLOCATE_OMX_BUFFERS
@@ -102,7 +103,7 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 #COMMON_GLOBAL_CFLAGS += -DUSE_SAMSUNG_COLORFORMAT
 
 # Enable WEBGL in WebKit
-ENABLE_WEBGL := true
+#ENABLE_WEBGL := true
 
 # HWComposer
 USE_SPRD_HWCOMPOSER := true
@@ -133,27 +134,27 @@ WIFI_BAND := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
+#EXTENDED_FONT_FOOTPRINT := true
 
 # Use dmalloc() for such low memory devices like us
 #MALLOC_IMPL := dlmalloc
 #MALLOC_SVELTE := true
 #BOARD_USES_LEGACY_MMAP := true
-# TARGET_LOW_RAM_DEVICE := true
+TARGET_LOW_RAM_DEVICE := true
 
 # Art coonfigurations
 #WITH_DEXPREOPT := true
 #DONT_DEXPREOPT_PREBUILTS := true
 #BOARD_GLOBAL_CFLAGS += -DUSES_LEGACY_BLOBS
-#MALLOC_SVELTE := true
+MALLOC_SVELTE := true
 #BOARD_USES_LEGACY_MMAP := true
 #TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Enable dex-preoptimization to speed up the first boot sequence
-WITH_DEXPREOPT := true
-WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-WITH_DEXPREOPT_PIC := true
-WITH_DEXPREOPT_COMP := false
+#WITH_DEXPREOPT := true
+#WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+#WITH_DEXPREOPT_PIC := true
+#WITH_DEXPREOPT_COMP := false
 
 # Lights
 TARGET_HAS_BACKLIT_KEYS := false

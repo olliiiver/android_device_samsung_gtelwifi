@@ -25,6 +25,42 @@ on fs
     symlink /system/bin /bin
     symlink /system/etc /etc
 
+    chown system system /sys/module/mali/parameters/gpu_cur_freq
+    chown system system /sys/module/mali/parameters/gpufreq_max_limit
+    chown system system /sys/module/mali/parameters/gpufreq_min_limit
+    chown system system /sys/module/mali/parameters/gpufreq_table
+    chown system system /sys/class/backlight/panel/brightness
+
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
+    chown system system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
+    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
+    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
+    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
+    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_upthreshold
+    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_downdifferential
+    chown media system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
+    chown media system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_request
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
+    chown media system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
+    chown system system /sys/class/graphics/fb0/blank
+
+    chmod 0660 /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
+    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0660 /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
+    chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
+    chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
+
+    chown system system /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
+    chown media system /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
+    chmod 0660 /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
+    chmod 0660 /sys/class/graphics/fb0/blank
+
+    chown system system /sys/class/graphics/fb0/dynamic_mipi_clk
+
+    write /sys/android_touch/doubletap2wake 1
+
 #Allow others to read fb devices
     chmod 660 /dev/graphics/fb0
     chmod 660 /dev/fb0
@@ -94,39 +130,7 @@ on early-boot
     chmod 764 /proc/mdbg/at_cmd
 
 on boot
-    chown system system /sys/module/mali/parameters/gpu_cur_freq
-    chown system system /sys/module/mali/parameters/gpufreq_max_limit
-    chown system system /sys/module/mali/parameters/gpufreq_min_limit
-    chown system system /sys/module/mali/parameters/gpufreq_table
-    chown system system /sys/class/backlight/sprd_backlight/brightness
 
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_setspeed
-    chown system system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
-    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
-    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
-    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
-    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_upthreshold
-    chown system system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_downdifferential
-    chown media system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
-    chown media system /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_request
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
-    chown media system /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
-    chown system system /sys/class/graphics/fb0/blank
-
-    chmod 0660 /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpufreq/sprdemand/cpu_hotplug_disable
-    chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_freq
-    chmod 0660 /sys/devices/platform/scxx30-dmcfreq.0/devfreq/scxx30-dmcfreq.0/ondemand/set_enable
-
-    chown system system /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
-    chown media system /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
-    chmod 0660 /sys/devices/system/cpu/cpuhotplug/cpu_hotplug_disable
-    chmod 0660 /sys/class/graphics/fb0/blank
-
-    chown system system /sys/class/graphics/fb0/dynamic_mipi_clk
 
 # usb detect
     mkdir /dev/bus 0755 root root
