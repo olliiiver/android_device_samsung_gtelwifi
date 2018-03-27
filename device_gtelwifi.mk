@@ -103,7 +103,7 @@ PRODUCT_PACKAGES += \
     gralloc.sc8830 \
     sprd_gsp.sc8830 \
     libion_sprd \
-    libmemoryheapion
+    libmemoryheapion_sprd
 #    hwcomposer.sc8830
 
 # Keylayout
