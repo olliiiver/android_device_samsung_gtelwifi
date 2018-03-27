@@ -9,6 +9,10 @@ on early-init
     # coredump file will not be generated in release version
     write /proc/sys/kernel/core_pattern /dev/null
 
+on init
+    # Possibly required by camera
+    export LD_LIBRARY_PATH /vendor/lib:/system/lib
+
 on fs
     mkdir /efs 0771 radio system
     mkdir /productinfo 0771 system system

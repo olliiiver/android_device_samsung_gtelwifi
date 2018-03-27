@@ -25,6 +25,8 @@ TARGET_SCREEN_WIDTH := 1280
 BOARD_USES_SPRD_HARDWARE := true
 # COMMON_GLOBAL_CFLAGS += -DSPRD_HARDWARE
 SOC_SCX30G_V2 := true
+# Required by camera; this value is appended to LD_PRELOAD, see ../../../system/core/rootdir/init.environ.rc.in
+TARGET_LDPRELOAD := /system/lib/libmemoryheapion_sprd.so
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := SC7730SE
@@ -148,7 +150,8 @@ TARGET_LOW_RAM_DEVICE := true
 #BOARD_GLOBAL_CFLAGS += -DUSES_LEGACY_BLOBS
 MALLOC_SVELTE := true
 #BOARD_USES_LEGACY_MMAP := true
-#TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+# Required by camera
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Enable dex-preoptimization to speed up the first boot sequence
 #WITH_DEXPREOPT := true
