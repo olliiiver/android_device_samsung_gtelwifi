@@ -37,24 +37,24 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${LOCAL_PATH}/rootdir/recovery,recovery/root)
 
 # Audio
-#PRODUCT_PACKAGES += \
-#    audio.primary.sc8830 \
-#    audio_policy.sc8830 \
-#    audio.a2dp.default \
-#    audio.usb.default \
-#    audio.r_submix.default \
-#    libtinyalsa \
-#    libaudio-resampler \
-#    tinymix
+PRODUCT_PACKAGES += \
+    audio.primary.sc8830 \
+    audio_policy.sc8830 \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    libtinyalsa \
+    libaudio-resampler \
+    tinymix
 
 
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
-#    $(LOCAL_PATH)/configs/audio/audio_hw.xml:system/etc/audio_hw.xml \
-#    $(LOCAL_PATH)/configs/audio/audio_para:system/etc/audio_para \
-#    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
-#    $(LOCAL_PATH)/configs/audio/codec_pga.xml:system/etc/codec_pga.xml \
-#    $(LOCAL_PATH)/configs/audio/tiny_hw.xml:system/etc/tiny_hw.xml
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/configs/audio/audio_hw.xml:system/etc/audio_hw.xml \
+    $(LOCAL_PATH)/configs/audio/audio_para:system/etc/audio_para \
+    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/audio/codec_pga.xml:system/etc/codec_pga.xml \
+    $(LOCAL_PATH)/configs/audio/tiny_hw.xml:system/etc/tiny_hw.xml
 
 # Bluetooth
 #PRODUCT_PACKAGES += \
